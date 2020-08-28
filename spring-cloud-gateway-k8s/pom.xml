@@ -50,5 +50,35 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <version>1.0.0-rc-1</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>registry.saas.pikaent.com:50443/gateway</name>
+                            <build>
+                                <from>adoptopenjdk:11-jre-hotspot</from>
+                                <assembly>
+                                    <targetDir>/deployments</targetDir>
+                                </assembly>
+                                <cmd>java -jar /deployments/${project.artifactId}-${project.version}.jar</cmd>
+                                <ports>
+                                    <port>8080</port>
+                                </ports>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
