@@ -18,10 +18,10 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       routes:
-        - id: tenant-service
-          uri: lb://tenant-service
+        - id: spring-cloud-account-k8s
+          uri: lb://spring-cloud-account-k8s
           predicates:
-            - Path=/api/v1/tenant/**
+            - Path=/account/**
     kubernetes:
       discovery:
         all-namespaces: true
