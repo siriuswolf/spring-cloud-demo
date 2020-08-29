@@ -9,7 +9,20 @@ management:
 
 
 spring:
+  application:
+    name: gateway
   cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: tenant-service
+          uri: lb://tenant-service
+          predicates:
+            - Path=/api/v1/tenant/**
     kubernetes:
       discovery:
         all-namespaces: true
+

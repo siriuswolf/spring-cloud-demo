@@ -16,7 +16,7 @@ public class AccountController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping("/services")
+    @RequestMapping("/account/services")
     public List<String> services() {
         return this.discoveryClient.getServices();
     }
