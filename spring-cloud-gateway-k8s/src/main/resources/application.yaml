@@ -22,7 +22,4 @@ spring:
           uri: lb://spring-cloud-account-k8s
           predicates:
             - Path=/account/**
-    kubernetes:
-      discovery:
-        all-namespaces: true
 

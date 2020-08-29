@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
+      discovery:
+        all-namespaces: true
